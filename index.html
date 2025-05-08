@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda | CeLOE LMS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/images/header.png" type="image/png">
+    <style>
+        nav {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+
+    <!-- Navbar -->
+    <nav class="bg-white fixed w-full z-10">
+        <div class="container mx-auto px-16 py-4 flex justify-between items-center">
+            <!-- Left Section -->
+            <div class="flex items-center space-x-8">
+                <img src="/images/logo.png" alt="Logo" class="h-10">
+                <div class="relative group">
+                    <button class="text-[#626262] font-normal hover:text-gray-800 focus:outline-none flex items-center">
+                        Study Program
+                        <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-md">
+                        <a href="#" class="block px-4 py-2 text-[#626262]  hover:bg-gray-100">Category 1</a>
+                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Category 2</a>
+                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Category 3</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <button class="text-[#626262] hover:text-gray-800 focus:outline-none flex items-center">
+                        Help Center
+                        <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-md">
+                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">FAQ</a>
+                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Support</a>
+                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Contact Us</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <button class="text-[#626262] hover:text-gray-800 focus:outline-none flex items-center">
+                        Courses
+                        <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-md">
+                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Course 1</a>
+                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Course 2</a>
+                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Course 3</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="flex items-center space-x-6">
+                <div class="relative group flex items-center space-x-2 border-r border-black ">
+                    <img src="/images/translate.svg" alt="Translate" class="w-7 h-7 text-[#626262]">
+                    <button id="language-button"
+                        class="text-[#626262] font-semibold hover:text-gray-800 focus:outline-none flex items-center">
+                        <span id="selected-language">English (en)</span>
+                        <svg class="w-4 h-4 ml-2 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-48 rounded-md">
+                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100"
+                            onclick="setLanguage('English', 'en')">English</a>
+                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100"
+                            onclick="setLanguage('Spanish', 'es')">Spanish</a>
+                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100"
+                            onclick="setLanguage('French', 'fr')">French</a>
+                    </div>
+                </div>
+
+                <a href="login.html" class="bg-[#ED1B24] hover:bg-red-800 text-white p-3 rounded-md">Log in</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div class="relative h-screen pt-[120px]">
+        <div class="carousel relative h-full">
+            <!-- Slide 1 -->
+            <div class="absolute inset-0 flex items-center justify-center bg-cover bg-center transition-opacity duration-1000 opacity-100"
+                id="slide1">
+                <div class="bg-black bg-opacity-50 text-white rounded-lg text-center">
+                    <img src="/images/carousel-1.jpg" alt="banner-1">
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="absolute inset-0 flex items-center justify-center bg-cover bg-center transition-opacity duration-1000 opacity-0"
+                id="slide2">
+                <img src="/images/carousel-2.png" alt="banner-2">
+            </div>
+
+            <!-- Prev & Next Buttons -->
+            <button onclick="prevSlide()"
+                class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white px-3 py-2 h-screen text-2xl">
+                <i class="fas fa-angle-left"></i>
+            </button>
+
+            <button onclick="nextSlide()"
+                class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white px-3 py-2 h-screen text-2xl">
+                <i class="fas fa-angle-right"></i>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="h-full w-full flex items-center justify-center bg-white mt-20">
+        <img src="/images/landing-2.png" alt="">
+    </div>
+
+    <div class="mx-36">
+        <!-- Bagian Keterangan Tentang Celoe-->
+        <div class="container mx-auto mb-8 mt-12 grid grid-cols-10 gap-6">
+            <!-- Left Grid (3/4 width) -->
+            <div class="col-span-6 grid grid-cols-2 gap-12">
+                <!-- Card 1 -->
+                <div
+                    class="border-l border-gray-300 mb-2 hover:border-blue-900 border-l-3 transition duration-100 ease-in-out">
+                    <div class="ml-4">
+                        <img src="/images/advertising 1.jpg" class="h-[50px] w-[50px]">
+                        <h1 class="font-bold my-2 text-[#2F265E]">Aktivitas Belajar Interaktif</h1>
+                        <p class="font-light text-[#645B8F]">Terlibat dalam berbagai aktivitas belajar daring yang
+                            dirancang khusus untuk membantu Anda mencapai capaian pembelajaran secara efektif.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="border-l border-gray-300 mb-4 hover:border-blue-900 hover:border-l-3 transition duration-100 ease-in-out">
+                    <div class="ml-4">
+                        <img src="/images/stamp 1.jpg" class="h-[50px] w-[50px]">
+                        <h1 class="font-bold my-2 text-[#2F265E]">Panduan Belajar Terstruktur</h1>
+                        <p class="font-light text-[#645B8F]">Ikuti petunjuk dan instruksi belajar daring yang jelas dan
+                            terarah, dengan akses ke sumber-sumber belajar mandiri yang komprehensif.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="border-l border-gray-300 mb-4 hover:border-blue-900 hover:border-l-3 transition duration-100 ease-in-out">
+                    <div class="ml-4">
+                        <img src="/images/privacy 1.jpg" class="h-[50px] w-[50px]">
+                        <h1 class="font-bold my-2 text-[#2F265E]">Login Mudah dengan SSO365</h1>
+                        <p class="font-light text-[#645B8F]">Masuk dengan mudah menggunakan SSO365 dan mulai jelajahi
+                            beragam kelas yang telah dirancang untuk mendukung pembelajaran Anda.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Grid (1/4 width) -->
+            <div class="p-4 col-span-4">
+                <h1 class="font-bold text-4xl text-[#2F265E]">Tentang CeLOE</h1>
+                <h1 class="font-bold text-4xl text-[#C02626] leading-tight">Learning Management System (LMS)</h1>
+                <p class="text-[#645B8F] mt-6">CeLOE Learning Management System (LMS) adalah platform pembelajaran
+                    daring di Telkom University untuk Program Studi reguler dan PJJ. Pengguna dapat login dengan SSO365
+                    dan mengikuti proses belajar sesuai skenario kelas daring yang telah dirancang. Pengajar dapat
+                    mengakses tutorial pengembangan dan pengajaran online di CALMS. Mahasiswa baru bisa mengikuti course
+                    Online Learning Experience for TelU Students (OLETS) untuk mendapatkan pengalaman belajar daring
+                    melalui CeLOE LMS.</p>
+            </div>
+        </div>
+
+        <!--Bagian Video-->
+        <div class="flex justify-center mx-auto rounded-lg overflow-hidden">
+            <div class="relative w-full max-w-xl mx-auto cursor-pointer" onclick="playVideo()">
+                <img src="https://img.youtube.com/vi/LQAHPqdeLpk/maxresdefault.jpg" class="rounded-lg" />
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <button class="bg-red-600 text-white px-4 py-2 rounded-full shadow-lg">Play Video</button>
+                </div>
+            </div>
+
+            <div class="video-container w-full max-w-xl mx-auto mt-4 rounded-lg overflow-hidden"></div>
+        </div>
+
+    </div>
+    <footer class="bg-[#000819] text-white pb-8 pt-8 mt-8 w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Grid Container -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <!-- Logo Section -->
+                <div
+                    class="flex flex-col items-center md:items-end border-b border-gray-700 pb-6 md:border-b-0 md:pb-0">
+                    <img src="/images/logo.png" class="w-56 h-auto md:mr-6 md:pt-4" alt="CeLOE Logo">
+                    <p class="text-sm mt-3 text-center">Center of e-Learning and Open Education</p>
+                </div>
+
+                <!-- Address Section -->
+                <div
+                    class="flex flex-col items-center md:items-start border-b border-gray-700 pb-6 md:border-b-0 md:pb-0">
+                    <p class="font-semibold text-xs">Address</p>
+                    <p class="mt-4 text-[13px] text-center md:text-left">
+                        Gedung Panehan Pasca Sarjana Lantai 1,<br>
+                        Jl. Telekomunikasi Terusan Buah Batu,<br>
+                        Bandung - 40257, Indonesia
+                    </p>
+                    <div class="mt-4 space-y-2 text-center md:text-left">
+                        <div class="flex items-center justify-center md:justify-start">
+                            <i class="fas fa-envelope text-white mr-2"></i>
+                            <p class="text-white hover:underline text-[13px]">E-Mail:
+                                clove@telkomuniversity.ac.id</p>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start">
+                            <i class="fab fa-whatsapp text-white mr-2"></i>
+                            <p class="text-white hover:underline text-[13px]">Khusus Dosen: +62 821-1666-3563
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start">
+                            <i class="fab fa-whatsapp text-white mr-2"></i>
+                            <p class="text-white hover:underline text-[13px]">Khusus Mahasiswa: +62
+                                812-2200-1813</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Links -->
+                <div class="flex flex-col  border-b border-gray-700 pb-6 md:border-b-0 md:pb-0">
+                    <p class="font-semibold text-xs text-center md:text-start">Related Links</p>
+                    <div
+                        class="flex justify-center md:justify-end mt-4 space-x-6 items-center md:items-end md:pr-12 md:pt-6">
+                        <img src="images/footer/openlib.png" alt="Open Library" class="h-auto w-16">
+                        <img src="images/footer/cae.png" alt="CAE" class="h-auto w-16">
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="flex flex-col items-center md:items-start">
+                    <p class="font-semibold text-xs">Social Media</p>
+                    <div class="flex justify-center mt-4 text-sm space-x-6 md:pt-12">
+                        <a href="#" class="text-gray-400 hover:text-gray-500 ">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-500 ">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-500 ">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-500 ">
+                            <i class="fab fa-google-plus-g"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-500 ">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gray-500 ">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Links -->
+            <div
+                class="flex flex-col md:flex-row justify-center items-center md:justify-start md:items-start mt-8 pt-6 border-t border-gray-800 space-y-2 md:space-y-0 md:space-x-4">
+                <p class="text-xs text-gray-300 hover:underline cursor-pointer">Privacy Policy</p>
+                <p class="text-xs text-gray-300 hover:underline cursor-pointer">Terms & Conditions</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script/index.js"></script>
+
+</body>
+
+</html>
