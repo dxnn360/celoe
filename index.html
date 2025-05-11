@@ -8,7 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="/images/header.png" type="image/png">
     <style>
         nav {
@@ -21,6 +22,42 @@
             font-family: 'Poppins', sans-serif;
             font-size: 16px;
         }
+
+        .gradient-bg {
+            background: linear-gradient(90deg, white 20.27%, #eee2f1 34.43%, #c3a3d9 51.17%, #6541cc 81.74%);
+            height: fit-content;
+        }
+
+        .stats-card {
+            box-shadow: rgba(109, 74, 255, 0.2) 10px 10px 30px 0px;
+            border: 1px solid #ebebeb;
+        }
+
+        .gradient-text {
+            background: linear-gradient(269deg, #6541cc 2.78%, #ff7a7a 228.38%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slide {
+            transition: all 0.3s ease;
+        }
+
+        .itemDot {
+            transition: all 0.5s ease;
+        }
+
+        /* Hide inactive slides initially */
+        .slide:not(.active) {
+            display: none;
+        }
+
+        /* For larger screens, show all slides stacked */
+        @media (min-width: 1024px) {
+            .slide {
+                display: block !important;
+            }
+        }
     </style>
 </head>
 
@@ -28,80 +65,145 @@
 
     <!-- Navbar -->
     <nav class="bg-white fixed w-full z-10">
-        <div class="container mx-auto px-16 py-4 flex justify-between items-center">
-            <!-- Left Section -->
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Left Section - Logo always visible -->
             <div class="flex items-center space-x-8">
                 <img src="/images/logo.png" alt="Logo" class="h-10">
-                <div class="relative group">
-                    <button class="text-[#626262] font-normal hover:text-gray-800 focus:outline-none flex items-center">
-                        Study Program
-                        <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-md">
-                        <a href="#" class="block px-4 py-2 text-[#626262]  hover:bg-gray-100">Category 1</a>
-                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Category 2</a>
-                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Category 3</a>
+                
+                <!-- Hamburger Menu Button (hidden on md and up) -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                
+                <!-- Desktop Menu (hidden on mobile) -->
+                <div class="hidden md:flex space-x-8">
+                    <div class="relative group">
+                        <button class="text-[#626262] font-normal hover:text-gray-800 focus:outline-none flex items-center">
+                            Study Program
+                            <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-md">
+                            <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Category 1</a>
+                            <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Category 2</a>
+                            <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Category 3</a>
+                        </div>
                     </div>
-                </div>
-                <div class="relative group">
-                    <button class="text-[#626262] hover:text-gray-800 focus:outline-none flex items-center">
-                        Help Center
-                        <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-md">
-                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">FAQ</a>
-                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Support</a>
-                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Contact Us</a>
+                    <div class="relative group">
+                        <button class="text-[#626262] hover:text-gray-800 focus:outline-none flex items-center">
+                            Help Center
+                            <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-md">
+                            <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">FAQ</a>
+                            <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Support</a>
+                            <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Contact Us</a>
+                        </div>
                     </div>
-                </div>
-                <div class="relative group">
-                    <button class="text-[#626262] hover:text-gray-800 focus:outline-none flex items-center">
-                        Courses
-                        <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-md">
-                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Course 1</a>
-                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Course 2</a>
-                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Course 3</a>
+                    <div class="relative group">
+                        <button class="text-[#626262] hover:text-gray-800 focus:outline-none flex items-center">
+                            Courses
+                            <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-md">
+                            <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Course 1</a>
+                            <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Course 2</a>
+                            <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100">Course 3</a>
+                        </div>
                     </div>
                 </div>
             </div>
-
+    
             <!-- Right Section -->
             <div class="flex items-center space-x-6">
-                <div class="relative group flex items-center space-x-2 border-r border-black ">
-                    <img src="/images/translate.svg" alt="Translate" class="w-7 h-7 text-[#626262]">
-                    <button id="language-button"
-                        class="text-[#626262] font-semibold hover:text-gray-800 focus:outline-none flex items-center">
+                <!-- Language Selector - Full on md+, icon only on sm -->
+                <div class="relative group flex items-center space-x-2 border-r border-black">
+                    <img src="/images/translate.svg" alt="Translate" class="w-7 h-7 mr-2 text-[#626262]">
+                    <button id="language-button" class="hidden sm:flex text-[#626262] font-semibold hover:text-gray-800 focus:outline-none items-center">
                         <span id="selected-language">English (en)</span>
-                        <svg class="w-4 h-4 ml-2 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="w-4 h-4 ml-2 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-48 rounded-md">
-                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100"
-                            onclick="setLanguage('English', 'en')">English</a>
-                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100"
-                            onclick="setLanguage('Spanish', 'es')">Spanish</a>
-                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100"
-                            onclick="setLanguage('French', 'fr')">French</a>
+                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-48 rounded-md right-0">
+                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100" onclick="setLanguage('English', 'en')">English</a>
+                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100" onclick="setLanguage('Spanish', 'es')">Spanish</a>
+                        <a href="#" class="block px-4 py-2 text-[#626262] hover:bg-gray-100" onclick="setLanguage('French', 'fr')">French</a>
                     </div>
                 </div>
-
+    
                 <a href="login.html" class="bg-[#ED1B24] hover:bg-red-800 text-white p-3 rounded-md">Log in</a>
             </div>
         </div>
+    
+        
+        
     </nav>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden fixed bg-white w-72 h-full z-10 px-4 pb-4 shadow-lg">
+        <!-- Header with Logo and Close Button -->
+        <div class="flex justify-between items-center py-4 border-b border-gray-200">
+            <img src="/images/logo.png" alt="Logo" class="h-8">
+            <button id="close-mobile-menu" class="text-gray-600 hover:text-gray-800 focus:outline-none">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="flex flex-col space-y-2 mt-4">
+            <div class="group">
+                <button class="w-full text-left text-[#626262] font-normal hover:text-gray-800 focus:outline-none flex items-center justify-between py-2">
+                    Study Program
+                    <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="hidden group-hover:block bg-gray-50 rounded-md pl-4">
+                    <a href="#" class="block py-2 text-[#626262] hover:bg-gray-100">Category 1</a>
+                    <a href="#" class="block py-2 text-[#626262] hover:bg-gray-100">Category 2</a>
+                    <a href="#" class="block py-2 text-[#626262] hover:bg-gray-100">Category 3</a>
+                </div>
+            </div>
+            
+            <div class="group">
+                <button class="w-full text-left text-[#626262] hover:text-gray-800 focus:outline-none flex items-center justify-between py-2">
+                    Help Center
+                    <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="hidden group-hover:block bg-gray-50 rounded-md pl-4">
+                    <a href="#" class="block py-2 text-[#626262] hover:bg-gray-100">FAQ</a>
+                    <a href="#" class="block py-2 text-[#626262] hover:bg-gray-100">Support</a>
+                    <a href="#" class="block py-2 text-[#626262] hover:bg-gray-100">Contact Us</a>
+                </div>
+            </div>
+            
+            <div class="group">
+                <button class="w-full text-left text-[#626262] hover:text-gray-800 focus:outline-none flex items-center justify-between py-2">
+                    Courses
+                    <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="hidden group-hover:block bg-gray-50 rounded-md pl-4">
+                    <a href="#" class="block py-2 text-[#626262] hover:bg-gray-100">Course 1</a>
+                    <a href="#" class="block py-2 text-[#626262] hover:bg-gray-100">Course 2</a>
+                    <a href="#" class="block py-2 text-[#626262] hover:bg-gray-100">Course 3</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Carousel -->
     <div class="relative h-screen pt-[120px]">
@@ -137,11 +239,11 @@
         <img src="/images/landing-2.png" alt="">
     </div>
 
-    <div class="mx-36">
+    <div class="mx-8 md:mx-36">
         <!-- Bagian Keterangan Tentang Celoe-->
-        <div class="container mx-auto mb-8 mt-12 grid grid-cols-10 gap-6">
+        <div class="container mx-auto mb-8 mt-12 grid grid-cols-2 md:grid-cols-10 gap-6">
             <!-- Left Grid (3/4 width) -->
-            <div class="col-span-6 grid grid-cols-2 gap-12">
+            <div class="col-span-5 grid grid-cols-1 md:col-span-6 md:grid-cols-2 gap-12">
                 <!-- Card 1 -->
                 <div
                     class="border-l border-gray-300 mb-2 hover:border-blue-900 border-l-3 transition duration-100 ease-in-out">
@@ -175,7 +277,7 @@
             </div>
 
             <!-- Right Grid (1/4 width) -->
-            <div class="p-4 col-span-4">
+            <div class="p-4 col-span-5 md:col-span-4">
                 <h1 class="font-bold text-4xl text-[#2F265E]">Tentang CeLOE</h1>
                 <h1 class="font-bold text-4xl text-[#C02626] leading-tight">Learning Management System (LMS)</h1>
                 <p class="text-[#645B8F] mt-6">CeLOE Learning Management System (LMS) adalah platform pembelajaran
@@ -188,19 +290,236 @@
         </div>
 
         <!--Bagian Video-->
-        <div class="flex justify-center mx-auto rounded-lg overflow-hidden">
-            <div class="relative w-full max-w-xl mx-auto cursor-pointer" onclick="playVideo()">
+        <div class="flex justify-center mx-auto rounded-lg  overflow-hidden">
+            <div class="relative max-w-3xl h-auto mx-auto mt-12 cursor-pointer" onclick="playVideo()">
                 <img src="https://img.youtube.com/vi/LQAHPqdeLpk/maxresdefault.jpg" class="rounded-lg" />
                 <div class="absolute inset-0 flex items-center justify-center">
                     <button class="bg-red-600 text-white px-4 py-2 rounded-full shadow-lg">Play Video</button>
                 </div>
             </div>
 
-            <div class="video-container w-full max-w-xl mx-auto mt-4 rounded-lg overflow-hidden"></div>
         </div>
 
     </div>
-    <footer class="bg-[#000819] text-white pb-8 pt-8 mt-8 w-full">
+
+    <div class="relative py-16 pt-8">
+        <!-- Background Gradient -->
+        <div
+            class="absolute inset-0 bg-[linear-gradient(90deg,_white_20.27%,_#eee2f1_34.43%,_#c3a3d9_51.17%,_#6541cc_81.74%)] h-72 my-auto -z-10">
+        </div>
+
+        <!-- Content Wrapper -->
+        <div class="relative flex flex-col lg:flex-row gap-16 items-center py-16 px-10 max-w-7xl mx-auto">
+            <!-- Left Section -->
+            <div class="lg:w-1/2">
+                <div class="max-w-lg">
+                    <h2 class="text-4xl font-bold text-[#2f265e] mb-4">Civitas Academica Telkom University</h2>
+                    <p class="text-lg text-[#645b8f]">
+                        Civitas Academica Telkom University terdiri dari komunitas akademik terpercaya yang fokus
+                        pada peningkatan kualitas dan kapasitas akademik mahasiswa serta pengembangan potensi
+                        kreatif mereka.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="lg:w-1/2 w-full">
+                <div class="flex flex-col md:flex-row gap-6 w-full">
+                    <!-- Left Cards Column -->
+                    <div class="md:w-1/2 flex flex-col gap-6 pt-20">
+                        <!-- Dosen Card -->
+                        <div class="flex gap-4 items-start bg-white rounded-lg p-4 pt-6 shadow-md">
+                            <img src="https://lms.telkomuniversity.ac.id/pluginfile.php/1/local_edwiserpagebuilder/media/480376283/fa-solid_chalkboard-teacher.png"
+                                class="w-14 h-auto mt-2 object-contain mr-4">
+                            <div>
+                                <p class="text-4xl font-normal gradient-text mt-4">1215</p>
+                                <p class="text-[#645b8f] my-4 text-center">Dosen</p>
+                            </div>
+                        </div>
+
+                        <!-- Mahasiswa Card -->
+                        <div class="flex gap-4 items-start bg-white rounded-lg p-4 pt-6 shadow-md">
+                            <img src="https://lms.telkomuniversity.ac.id/pluginfile.php/1/local_edwiserpagebuilder/media/480376283/f7_person-2-fill.png"
+                                class="w-14 h-auto mt-2 object-contain mr-4">
+                            <div>
+                                <p class="text-4xl font-normal gradient-text mt-4">34549</p>
+                                <p class="text-[#645b8f] my-4 text-center">Mahasiswa</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Cards Column -->
+                    <div class="md:w-1/2 flex flex-col gap-6 pb-16">
+                        <!-- Alumni Card -->
+                        <div class="flex gap-4 items-start bg-white rounded-lg p-4 pt-6 shadow-md">
+                            <img src="https://lms.telkomuniversity.ac.id/pluginfile.php/1/local_edwiserpagebuilder/media/480376283/Vector.png"
+                                class="w-14 h-auto mt-2 object-contain mr-4">
+                            <div>
+                                <p class="text-4xl font-normal gradient-text mt-4">85875</p>
+                                <p class="text-[#645b8f] my-4 text-center">Alumni</p>
+                            </div>
+                        </div>
+
+                        <!-- Kampus Card -->
+                        <div class="flex gap-4 items-start bg-white rounded-lg p-4 pt-6 shadow-md">
+                            <img src="https://lms.telkomuniversity.ac.id/pluginfile.php/1/local_edwiserpagebuilder/media/480376283/subway_location-3.png"
+                                class="w-14 h-auto mt-2 object-contain mr-4">
+                            <div>
+                                <p class="text-4xl font-normal gradient-text mt-4">50</p>
+                                <p class="text-[#645b8f] my-4  text-center">Hektar Kampus</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-10 px-16 max-w-7xl mx-auto" id="testimonial-slider">
+        <!-- Main Container -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+
+            <!-- Image Slider -->
+            <div class="relative h-[610px] max-w-[550px] image-slider mr-8">
+                <!-- Background Pattern -->
+                <img src="https://qa-remui.edwiser.org/staticcdn/CDN/slidernewdesign15/images/pattern.png" alt="pattern"
+                    class="absolute top-24 left-0 h-[414px] object-contain">
+
+                <!-- Circular Image Container -->
+                <div
+                    class="absolute right-[210px] top-16 bottom-16 w-[480px] h-[480px] rounded-full border border-gray-300 dotCircle">
+                    <!-- Active Image (Large) -->
+                    <div class="itemDot absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-[373px] h-[240px] z-4 active"
+                        data-index="0">
+                        <img src="https://lms.telkomuniversity.ac.id/pluginfile.php/1/local_edwiserpagebuilder/media/57402497/tunc-bdg.png"
+                            alt="Telkom University Bandung" class="w-full h-full object-contain filter drop-shadow-lg">
+                    </div>
+
+                    <!-- Other Images (Small) -->
+                    <div class="itemDot absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 w-[220px] h-[124px]"
+                        data-index="1">
+                        <img src="https://lms.telkomuniversity.ac.id/pluginfile.php/1/local_edwiserpagebuilder/media/57402497/tunc-sby.png"
+                            alt="Telkom University Surabaya" class="w-full h-full object-cover rounded">
+                    </div>
+
+                    <div class="itemDot absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[220px] h-[124px]"
+                        data-index="2">
+                        <img src="https://lms.telkomuniversity.ac.id/pluginfile.php/1/local_edwiserpagebuilder/media/57402497/tunc-jkt.png"
+                            alt="Telkom University Jakarta" class="w-full h-full object-cover rounded">
+                    </div>
+
+                    <div class="itemDot absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-1/2 w-[220px] h-[124px]"
+                        data-index="3">
+                        <img src="https://lms.telkomuniversity.ac.id/pluginfile.php/1/local_edwiserpagebuilder/media/57402497/tunc-pwt.png"
+                            alt="Telkom University Purwokerto" class="w-full h-full object-cover rounded">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Content Slider -->
+            <div class="space-y-6 text-center">
+                <div class="space-y-4 card-slider">
+                    <!-- Slide 1 - Active by default -->
+                    <div class="slide p-6 border border-gray-100 rounded-lg bg-white cursor-pointer transition-all hover:shadow-lg hover:shadow-purple-200 active:shadow-lg active:shadow-purple-200"
+                        data-index="0">
+                        <div class="space-y-2">
+                            <h3 class="text-black text-base font-bold">Telkom University Bandung</h3>
+                            <p class="text-gray-600 text-xs">Jl. Telekomunikasi, Terusan Buahbatu – Bojongsoang,
+                                Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat</p>
+                            <p class="text-gray-600 text-sm mt-2">Telkom University Main Campus berhasil membuktikan
+                                dalam membangun institusi pendidikan yang unggul, serta menghasilkan lulusan yang siap
+                                saing untuk mengembangkan suatu industri hingga pemerintahan. Dalam komitmennya, Telkom
+                                University selalu berupaya untuk memberikan kontribusinya untuk memajukan bangsa, dengan
+                                purpose "Contribute to The World."</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="slide p-6 border border-gray-100 rounded-lg bg-white cursor-pointer transition-all hover:shadow-lg hover:shadow-purple-200"
+                        data-index="1">
+                        <div class="space-y-2">
+                            <h3 class="text-black text-base font-bold">Telkom University Surabaya</h3>
+                            <p class="text-gray-600 text-xs">Jalan Pancurawis 53147 Purwokerto Kidul Jawa Tengah</p>
+                            <p class="text-gray-600 text-sm mt-2">Telkom University hadir di Purwokerto, merupakan
+                                perguruan tinggi swasta dan satu-satunya institut di Jawa Tengah yang fokus pada
+                                pengembangan ilmu pengetahuan berbasis teknologi informasi pada bidang Healthcare,
+                                Agro-Industry, Tourism, dan Small Medium Enterprises (HATS).</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="slide p-6 border border-gray-100 rounded-lg bg-white cursor-pointer transition-all hover:shadow-lg hover:shadow-purple-200"
+                        data-index="2">
+                        <div class="space-y-2">
+                            <h3 class="text-black text-base font-bold">Telkom University Jakarta</h3>
+                            <p class="text-gray-600 text-xs">Jl. Raya Daan Mogot, Kedaung Kali Angke, Kecamatan Cengkareng, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta</p>
+                            <p class="text-gray-600 text-sm mt-2">Telkom University hadir di Jakarta dengan 4 program studi unggulan yang berlokasi Kampus A: Daan Mogot dan Kampus B: Setiabudi. Telkom University Jakarta menggunakan kurikulum yang sama dengan kampus utama untuk memperluas dan meningkatkan kualitas pendidikan yang unggul, siap mencetak generasi bangsa yang memiliki literasi teknologi.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="slide p-6 border border-gray-100 rounded-lg bg-white cursor-pointer transition-all hover:shadow-lg hover:shadow-purple-200"
+                        data-index="3">
+                        <div class="space-y-2">
+                            <h3 class="text-black text-base font-bold">Telkom University Purwokerto</h3>
+                            <p class="text-gray-600 text-xs">Jalan Pancurawis 53147 Purwokerto Kidul Jawa Tengah</p>
+                            <p class="text-gray-600 text-sm mt-2">Telkom University hadir di Purwokerto, merupakan perguruan tinggi swasta dan satu-satunya institut di Jawa Tengah yang fokus pada pengembangan ilmu pengetahuan berbasis teknologi informasi pada bidang Healthcare, Agro-Industry, Tourism, dan Small Medium Enterprises (HATS).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indicators -->
+                <div class="hidden flex justify-center space-x-2 indicators">
+                    <button class="indicator-btn w-2 h-2 rounded-full bg-indigo-900" data-index="0"></button>
+                    <button class="indicator-btn w-2 h-2 rounded-full bg-gray-300" data-index="1"></button>
+                    <button class="indicator-btn w-2 h-2 rounded-full bg-gray-300" data-index="2"></button>
+                    <button class="indicator-btn w-2 h-2 rounded-full bg-gray-300" data-index="3"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="border-t border-gray-300 mt-16 py-8">
+        <div class="flex justify-center items-center py-8">
+            <h1 class="text-4xl font-bold text-black">Prestasi Telkom University</h1>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-16 md:px-36">
+            <div class="flex flex-col bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-xl transition duration-200 ease-in-out">
+                <img src="https://lms.telkomuniversity.ac.id/pluginfile.php/1/local_edwiserpagebuilder/media/948663076/Anugerah-Kemahasiswaan-2023-320-Prestasi-Berhasil-di-Raih-Mahasiswa-Tel-U-Selama-2023--1200x600.jpeg"
+                    class="w-full h-[240px] object-cover rounded-t  mr-4">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <p class="text-gray-800 text-xl">Anugerah Kemahasiswaan 2023: 320 Prestasi Berhasil di Raih Mahasiswa Tel-U Selama 2023</p>
+                    <div class="mt-4">
+                        <p class="text-indigo-800 object-bottom">Read more</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-xl transition duration-200 ease-in-out">
+                <img src="https://lms.telkomuniversity.ac.id/pluginfile.php/1/local_edwiserpagebuilder/media/321272968/Foto-Artikel-42-1200x600.jpeg"
+                    class="w-full h-[240px] object-cover rounded-t  mr-4">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <p class="text-gray-800 text-xl">Bantu Petani Tinjau Faktor Kesuburan Tanah, Mahasiswa Tel-U Buat Alat Canggih</p>
+                    <div class="mt-4">
+                        <p class="text-indigo-800 object-bottom">Read more</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-xl transition duration-200 ease-in-out">
+                <img src="https://lms.telkomuniversity.ac.id/pluginfile.php/1/local_edwiserpagebuilder/media/78406978/startuptelu.jpeg"
+                    class="w-full h-[240px] object-cover rounded-t  mr-4">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <p class="text-gray-800 text-xl">11 Startup Tel-U Berhasil Tarik Perhatian Investor, Telkom University dan KemenkopUKM Sukses Gelar Demo Day</p>
+                    <div class="mt-4">
+                        <p class="text-indigo-800 object-bottom">Read more</p>
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </div>
+
+    <footer class="bg-[#000819] text-white pb-8 pt-8 mt-32 w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Grid Container -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
