@@ -1,150 +1,184 @@
-/**
- * COURSE VIEW TOGGLE FUNCTIONALITY
- * Handles switching between grid and list views
- */
-const gridViewBtn = document.getElementById("gridViewBtn");
-const listViewBtn = document.getElementById("listViewBtn");
-const gridView = document.getElementById("gridView");
-const listView = document.getElementById("listView");
+document.addEventListener('DOMContentLoaded', function() {
+  // View Toggle Functionality
+  const gridViewBtn = document.getElementById("gridViewBtn");
+  const listViewBtn = document.getElementById("listViewBtn");
+  const gridView = document.getElementById("gridView");
+  const listView = document.getElementById("listView");
+  let currentView = 'grid'; // Track current view state
 
-// Switch to Grid View
-gridViewBtn.addEventListener("click", () => {
-  // Toggle view visibility
-  gridView.classList.remove("hidden");
-  listView.classList.add("hidden");
-  
-  // Update button styles
-  gridViewBtn.classList.add("bg-[#FBD1D3]", "text-[#ED1B24]", "border-[#F4767B]");
-  gridViewBtn.classList.remove("bg-white", "text-[#626262]", "border-[#B0B0B0]");
-  
-  listViewBtn.classList.add("bg-white", "text-[#626262]", "border-[#B0B0B0]");
-  listViewBtn.classList.remove("bg-[#FBD1D3]", "text-[#ED1B24]", "border-[#F4767B]");
-});
+  // Tab Functionality
+  const tabButtons = document.querySelectorAll(".tab-button");
+  let currentTab = 'all';
 
-// Switch to List View
-listViewBtn.addEventListener("click", () => {
-  // Toggle view visibility
-  gridView.classList.add("hidden");
-  listView.classList.remove("hidden");
-  
-  // Update button styles
-  listViewBtn.classList.add("bg-[#FBD1D3]", "text-[#ED1B24]", "border-[#F4767B]");
-  listViewBtn.classList.remove("bg-white", "text-[#626262]", "border-[#B0B0B0]");
-  
-  gridViewBtn.classList.add("bg-white", "text-[#626262]", "border-[#B0B0B0]");
-  gridViewBtn.classList.remove("bg-[#FBD1D3]", "text-[#ED1B24]", "border-[#F4767B]");
-});
-
-/**
- * TAB FUNCTIONALITY
- * Handles course filtering by tabs (All, In Progress, Future, etc.)
- */
-const tabButtons = document.querySelectorAll(".tab-button");
-const tabContents = document.querySelectorAll(".tab-content");
-
-tabButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    // Update active tab styling
-    tabButtons.forEach((btn) => {
-      btn.classList.remove("text-[#A12520]", "border-b-2", "border-[#A12520]");
-      btn.classList.add("text-[#626262]");
-    });
-    
-    button.classList.add("text-[#A12520]", "border-b-2", "border-[#A12520]");
-    button.classList.remove("text-[#626262]");
-
-    // Filter content based on selected tab
-    const tabName = button.getAttribute("data-tab");
-    tabContents.forEach((content) => {
-      if (tabName === "all" || content.classList.contains(tabName)) {
-        content.style.display = ""; // Show matching content
-      } else {
-        content.style.display = "none"; // Hide non-matching content
-      }
-    });
-  });
-});
-
-/**
- * SEARCH FUNCTIONALITY - WORKS FOR BOTH GRID AND LIST VIEWS
- * Filters courses based on search input in both view modes
- */
-function setupSearch() {
+  // Search and Sort Functionality
   const searchInput = document.getElementById('searchCourse');
-  
-  if (!searchInput) return;
+  const sortButton = document.getElementById('sortButton');
+  const sortIcon = document.getElementById('sortIcon');
+  let currentSort = 'default'; // 'default', 'name-asc', 'name-desc'
 
-  searchInput.addEventListener('input', function() {
-    const searchTerm = this.value.trim().toLowerCase();
-    const cards = document.getElementsByClassName('tab-content');
-    
-    cards.forEach(card => {
-      // Find the course title element - works for both grid and list views
-      const titleElement = card.querySelector('h3');
-      if (!titleElement) return;
-      
-      const cardTitle = titleElement.textContent.toLowerCase();
-      const isMatch = cardTitle.includes(searchTerm);
-      
-      // Show/hide based on search match - works for both views
-      if (gridView.classList.contains('hidden')) {
-        // List view specific handling
-        card.style.display = isMatch ? 'flex' : 'none';
+  // Initialize
+  toggleView(currentView);
+  setupTabs();
+  setupSearchAndSort();
+
+  function toggleView(viewType) {
+      currentView = viewType;
+      if (viewType === 'grid') {
+          gridView.classList.remove("hidden");
+          listView.classList.add("hidden");
+          gridViewBtn.classList.add("bg-[#FBD1D3]", "text-[#ED1B24]", "border-[#F4767B]");
+          gridViewBtn.classList.remove("bg-white", "text-[#626262]", "border-[#B0B0B0]");
+          listViewBtn.classList.add("bg-white", "text-[#626262]", "border-[#B0B0B0]");
+          listViewBtn.classList.remove("bg-[#FBD1D3]", "text-[#ED1B24]", "border-[#F4767B]");
       } else {
-        // Grid view specific handling
-        card.style.display = isMatch ? 'block' : 'none';
+          gridView.classList.add("hidden");
+          listView.classList.remove("hidden");
+          listViewBtn.classList.add("bg-[#FBD1D3]", "text-[#ED1B24]", "border-[#F4767B]");
+          listViewBtn.classList.remove("bg-white", "text-[#626262]", "border-[#B0B0B0]");
+          gridViewBtn.classList.add("bg-white", "text-[#626262]", "border-[#B0B0B0]");
+          gridViewBtn.classList.remove("bg-[#FBD1D3]", "text-[#ED1B24]", "border-[#F4767B]");
       }
-    });
-  });
-}
+      filterAndSortCourses();
+  }
 
-/**
- * MOBILE MENU FUNCTIONALITY
- * Handles mobile menu toggle
- */
-function setupMobileMenu() {
+  function setupTabs() {
+      tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+              // Update active tab styling
+              tabButtons.forEach((btn) => {
+                  btn.classList.remove("text-[#A12520]", "border-b-2", "border-[#A12520]");
+                  btn.classList.add("text-[#626262]");
+              });
+              button.classList.add("text-[#A12520]", "border-b-2", "border-[#A12520]");
+              button.classList.remove("text-[#626262]");
+
+              // Update current tab
+              currentTab = button.getAttribute('data-tab');
+              filterAndSortCourses();
+          });
+      });
+  }
+
+  function setupSearchAndSort() {
+      // Search functionality
+      searchInput.addEventListener('input', function() {
+          filterAndSortCourses();
+      });
+
+      // Sort functionality
+      sortButton.addEventListener('click', function() {
+          // Toggle sort options
+          if (currentSort === 'default') {
+              currentSort = 'name-asc';
+          } else if (currentSort === 'name-asc') {
+              currentSort = 'name-desc';
+          } else {
+              currentSort = 'default';
+          }
+          updateSortButton();
+          filterAndSortCourses();
+      });
+  }
+
+  function updateSortButton() {
+      switch(currentSort) {
+          case 'name-asc':
+              sortButton.innerHTML = 'Sort by course name (A-Z)';
+              sortButton.appendChild(sortIcon);
+              sortIcon.classList.remove('rotate-180');
+              break;
+          case 'name-desc':
+              sortButton.innerHTML = 'Sort by course name (Z-A)';
+              sortButton.appendChild(sortIcon);
+              sortIcon.classList.add('rotate-180');
+              break;
+          default:
+              sortButton.innerHTML = 'Sort by course name';
+              sortButton.appendChild(sortIcon);
+              sortIcon.classList.remove('rotate-180');
+      }
+  }
+
+  function filterAndSortCourses() {
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      const cards = document.querySelectorAll('.tab-content');
+
+      // Filter cards based on tab and search term
+      const filteredCards = Array.from(cards).filter(card => {
+          // Filter by tab
+          const tabMatch = currentTab === 'all' || card.classList.contains(currentTab);
+          
+          // Filter by search term
+          const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+          const searchMatch = searchTerm === '' || title.includes(searchTerm);
+          
+          return tabMatch && searchMatch;
+      });
+
+      // Sort cards
+      const sortedCards = [...filteredCards].sort((a, b) => {
+          const titleA = a.querySelector('h3')?.textContent.toLowerCase() || '';
+          const titleB = b.querySelector('h3')?.textContent.toLowerCase() || '';
+          
+          switch(currentSort) {
+              case 'name-asc':
+                  return titleA.localeCompare(titleB);
+              case 'name-desc':
+                  return titleB.localeCompare(titleA);
+              default:
+                  return 0;
+          }
+      });
+
+      // Hide all cards first
+      cards.forEach(card => {
+          card.style.display = 'none';
+      });
+
+      // Show filtered and sorted cards with appropriate display style
+      sortedCards.forEach(card => {
+          card.style.display = currentView === 'grid' ? 'block' : 'flex';
+      });
+
+      // If in grid view, we need to re-append to maintain grid order
+      if (currentView === 'grid') {
+          const gridContainer = document.getElementById('gridView');
+          sortedCards.forEach(card => {
+              if (card.parentNode === gridContainer) {
+                  gridContainer.appendChild(card);
+              }
+          });
+      }
+  }
+
+  // Set first tab as active by default
+  if (tabButtons.length > 0) {
+      tabButtons[0].click();
+  }
+});
+
+// Popup functionality
+document.addEventListener("DOMContentLoaded", function () {
   const popup = document.getElementById("popup-modal");
   const closeButton = document.getElementById("close-popup");
+
+  closeButton.addEventListener("click", function () {
+    popup.classList.add("hidden");
+  });
+
   const hamburgerBtn = document.getElementById("hamburgerBtn");
   const leftMenu = document.getElementById("leftMenu");
-  const closeMenu = document.getElementById("closeMenu");
 
-  // Close popup modal
-  if (closeButton && popup) {
-    closeButton.addEventListener("click", () => popup.classList.add("hidden"));
-  }
-
-  // Toggle mobile menu
   if (hamburgerBtn && leftMenu) {
-    hamburgerBtn.addEventListener("click", () => leftMenu.classList.toggle("hidden"));
+    hamburgerBtn.addEventListener("click", function () {
+      leftMenu.classList.toggle("hidden");
+    });
   }
 
-  // Close mobile menu
-  if (closeMenu && leftMenu) {
-    closeMenu.addEventListener("click", () => leftMenu.classList.add("hidden"));
-  }
-}
-
-/**
- * INITIALIZATION
- * Runs when DOM is fully loaded
- */
-document.addEventListener("DOMContentLoaded", function() {
-  // Set default tab to 'All'
-  const defaultTab = document.querySelector('.tab-button[data-tab="all"]');
-  if (defaultTab) defaultTab.click();
-  
-  // Initialize all functionality
-  setupSearch();
-  setupMobileMenu();
-  
-  // Mobile tab selection (if exists)
-  const mobileTabSelect = document.getElementById('mobileTabSelect');
-  if (mobileTabSelect) {
-    mobileTabSelect.addEventListener('change', function() {
-      const tabName = this.value;
-      const correspondingButton = document.querySelector(`.tab-button[data-tab="${tabName}"]`);
-      if (correspondingButton) correspondingButton.click();
+  let closeMenu = document.getElementById("closeMenu");
+  if (closeMenu) {
+    closeMenu.addEventListener("click", function () {
+      leftMenu.classList.add("hidden");
     });
   }
 });

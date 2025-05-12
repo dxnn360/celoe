@@ -11,35 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="icon" href="/images/header.png" type="image/png">
-    <style>
-        nav {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 300;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            font-size: 16px;
-        }
-
-        /* Toggle Switch Styles */
-        .toggle-checkbox:checked {
-            right: 0;
-            border-color: #68D391;
-        }
-
-        .toggle-checkbox:checked+.toggle-label {
-            background-color: #68D391;
-        }
-
-        .listTabCourse {
-            font-family: 'Inter', sans-serif;
-        }
-        .cardContainer {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body class="bg-[#F6F6F6]">
@@ -91,7 +63,8 @@
                     </div>
 
                     <div class="relative group">
-                        <a href="mycourse.html" class="text-[#626262] hover:text-gray-800 focus:outline-none flex items-center pb-4" >
+                        <a href="mycourse.html"
+                            class="text-[#626262] hover:text-gray-800 focus:outline-none flex items-center pb-4">
                             My Courses
                         </a>
                     </div>
@@ -232,7 +205,7 @@
                 <div class="flex justify-start gap-4 items-center px-6 pt-8 mb-2">
                     <!-- Search Bar with Icon -->
                     <div class="relative">
-                        <input type="text" placeholder="Search by activity type or name"
+                        <input id="searchCourse" type="text" placeholder="Search by activity type or name"
                             class="border border-[#B0B0B0] rounded px-3 py-2 pl-8 text-sm w-auto text-[#626262]" />
                         <svg class="absolute left-2.5 top-2.5 h-4 w-4 text-[#626262]" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -296,7 +269,7 @@
                 <div class="flex items-stretch justify-between border-b border-[#B0B0B0] px-6 pb-6 pt-2 mb-4">
                     <!-- Element 1: Icon -->
                     <div class="flex items-center justify-center bg-[#EB66A2] rounded-2xl aspect-square h-full p-6">
-                        <img src="images/dashboard/task.svg" ></img>
+                        <img src="images/dashboard/task.svg"></img>
                     </div>
 
                     <!-- Element 2: Title, Description, and Time -->
@@ -343,7 +316,8 @@
 
                     <!-- Element 2: Title, Description, and Time -->
                     <div class="flex-1 mx-4 flex flex-col justify-center">
-                        <h3 class="font-semibold text-gray-800">Upload Draft Software Requirement Specification (SRS) - Laporan Kemajuan</h3>
+                        <h3 class="font-semibold text-gray-800">Upload Draft Software Requirement Specification (SRS) -
+                            Laporan Kemajuan</h3>
                         <p class="text-sm text-gray-600">Konstruksi Perangkat Lunak SE-06-01 [YIS]</p>
                         <span class="text-xs text-gray-500 mt-6">23.59</span>
                     </div>
@@ -370,7 +344,7 @@
                 <div class="flex justify-start gap-4 items-center px-6 pt-8 mb-2">
                     <!-- Search Bar with Icon -->
                     <div class="relative">
-                        <input id="searchCourse" type="text" placeholder="Search by activity type or name"
+                        <input id="searchCourseOverview" type="text" placeholder="Search by activity type or name"
                             class="border border-[#B0B0B0] rounded px-3 py-2 pl-8 text-sm w-auto text-[#626262]" />
                         <svg class="absolute left-2.5 top-2.5 h-4 w-4 text-[#626262]" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -382,7 +356,8 @@
                     <!-- Sort by Course Name -->
                     <div class="relative">
                         <button
-                            class="border border-[#B0B0B0] px-3 py-2 pl-3 pr-7 text-sm text-[#626262] rounded w-auto hover:bg-gray-100 flex items-center">
+                            class="border border-[#B0B0B0] px-3 py-2 pl-3 pr-7 text-sm text-[#626262] rounded w-auto hover:bg-gray-100 flex items-center"
+                            id="sortButton">
                             Sort by course name
                             <svg class="absolute right-2 h-4 w-4 text-[#626262]" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -472,13 +447,16 @@
                     <!-- Grid View (Default) -->
                     <div id="gridView" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <!-- Card 1 -->
-                        <div class="tab-content all in-progress bg-white rounded-lg shadow-lg overflow-hidden border border-[#E5E5E5]">
+                        <div
+                            class="tab-content all in-progress bg-white rounded-lg shadow-lg overflow-hidden border border-[#E5E5E5]">
                             <img src="/images/dashboard/default-course.png" alt="Course"
                                 class="w-full h-48 object-cover">
                             <div class="pb-4 pt-2 mx-3">
-                                <h3 class="font-semibold mb-2 text-lg">Konstruksi Perangkat Lunak SE-06-02 [RPD]</h3>
+                                <h3 class="font-semibold mb-2 text-lg titleCourse">Konstruksi Perangkat Lunak SE-06-02
+                                    [RPD]</h3>
                                 <div class="flex justify-start items-center my-6">
-                                    <img src="/images/dashboard/pp-dosen.png" alt="Profile" class="w-8 h-8 rounded-full mr-2">
+                                    <img src="/images/dashboard/pp-dosen.png" alt="Profile"
+                                        class="w-8 h-8 rounded-full mr-2">
                                     <span class="text-black text-sm">RIYAN DWI YULIAN PRAKOSO</span>
                                 </div>
 
@@ -487,7 +465,7 @@
                                 <div class="w-full bg-[#D9D9D9] rounded-full h-2.5 my-2">
                                     <div class="bg-[#37BE71] h-2.5 rounded-full" style="width: 50%"></div>
                                 </div>
-                                <p class="font-bold text-black text-md">50% Course Completed</p>  
+                                <p class="font-bold text-black text-md">50% Course Completed</p>
                                 <div class="flex justify-end mb-2">
                                     <a href="#"
                                         class="border-[#0062CC] border font-bold text-xs text-[#0062CC] px-4 py-2 rounded hover:bg-[#004a99] mt-4">
@@ -498,13 +476,16 @@
                         </div>
 
                         <!-- Card 2 -->
-                        <div class="tab-content all in-progress bg-white rounded-lg shadow-lg overflow-hidden border border-[#E5E5E5]">
+                        <div
+                            class="tab-content all in-progress bg-white rounded-lg shadow-lg overflow-hidden border border-[#E5E5E5]">
                             <img src="/images/dashboard/default-course.png" alt="Course"
                                 class="w-full h-48 object-cover">
                             <div class="pb-4 pt-2 mx-3">
-                                <h3 class="font-semibold mb-2 text-lg">Konstruksi Perangkat Lunak SE-06-02 [RPD]</h3>
+                                <h3 class="font-semibold mb-2 text-lg titleCourse">Konstruksi Perangkat Lunak SE-06-02
+                                    [RPD]</h3>
                                 <div class="flex justify-start items-center my-6">
-                                    <img src="/images/dashboard/pp-dosen.png" alt="Profile" class="w-8 h-8 rounded-full mr-2">
+                                    <img src="/images/dashboard/pp-dosen.png" alt="Profile"
+                                        class="w-8 h-8 rounded-full mr-2">
                                     <span class="text-black text-sm">RIYAN DWI YULIAN PRAKOSO</span>
                                 </div>
 
@@ -513,7 +494,7 @@
                                 <div class="w-full bg-[#D9D9D9] rounded-full h-2.5 my-2">
                                     <div class="bg-[#37BE71] h-2.5 rounded-full" style="width: 50%"></div>
                                 </div>
-                                <p class="font-bold text-black text-md">50% Course Completed</p>  
+                                <p class="font-bold text-black text-md">50% Course Completed</p>
                                 <div class="flex justify-end mb-2">
                                     <a href="#"
                                         class="border-[#0062CC] border font-bold text-xs text-[#0062CC] px-4 py-2 rounded hover:bg-[#004a99] mt-4">
@@ -524,13 +505,16 @@
                         </div>
 
                         <!-- Card 3 -->
-                        <div class="tab-content all in-progress bg-white rounded-lg shadow-lg overflow-hidden border border-[#E5E5E5]">
+                        <div
+                            class="tab-content all in-progress bg-white rounded-lg shadow-lg overflow-hidden border border-[#E5E5E5]">
                             <img src="/images/dashboard/default-course.png" alt="Course"
                                 class="w-full h-48 object-cover">
                             <div class="pb-4 pt-2 mx-3">
-                                <h3 class="font-semibold mb-2 text-lg">Konstruksi Perangkat Lunak SE-06-02 [RPD]</h3>
+                                <h3 class="font-semibold mb-2 text-lg titleCourse">Konstruksi Perangkat Lunak SE-06-02
+                                    [RPD]</h3>
                                 <div class="flex justify-start items-center my-6">
-                                    <img src="/images/dashboard/pp-dosen.png" alt="Profile" class="w-8 h-8 rounded-full mr-2">
+                                    <img src="/images/dashboard/pp-dosen.png" alt="Profile"
+                                        class="w-8 h-8 rounded-full mr-2">
                                     <span class="text-black text-sm">RIYAN DWI YULIAN PRAKOSO</span>
                                 </div>
 
@@ -539,7 +523,7 @@
                                 <div class="w-full bg-[#D9D9D9] rounded-full h-2.5 my-2">
                                     <div class="bg-[#37BE71] h-2.5 rounded-full" style="width: 50%"></div>
                                 </div>
-                                <p class="font-bold text-black text-md">50% Course Completed</p>  
+                                <p class="font-bold text-black text-md">50% Course Completed</p>
                                 <div class="flex justify-end mb-2">
                                     <a href="#"
                                         class="border-[#0062CC] border font-bold text-xs text-[#0062CC] px-4 py-2 rounded hover:bg-[#004a99] mt-4">
@@ -550,13 +534,16 @@
                         </div>
 
                         <!-- Card 4 -->
-                        <div class="tab-content all in-progress bg-white rounded-lg shadow-lg overflow-hidden border border-[#E5E5E5]">
+                        <div
+                            class="tab-content all in-progress bg-white rounded-lg shadow-lg overflow-hidden border border-[#E5E5E5]">
                             <img src="/images/dashboard/default-course.png" alt="Course"
                                 class="w-full h-48 object-cover">
                             <div class="pb-4 pt-2 mx-3">
-                                <h3 class="font-semibold mb-2 text-lg">Konstruksi Perangkat Lunak SE-06-02 [RPD]</h3>
+                                <h3 class="font-semibold mb-2 text-lg titleCourse">Konstruksi Perangkat Lunak SE-06-02
+                                    [RPD]</h3>
                                 <div class="flex justify-start items-center my-6">
-                                    <img src="/images/dashboard/pp-dosen.png" alt="Profile" class="w-8 h-8 rounded-full mr-2">
+                                    <img src="/images/dashboard/pp-dosen.png" alt="Profile"
+                                        class="w-8 h-8 rounded-full mr-2">
                                     <span class="text-black text-sm">RIYAN DWI YULIAN PRAKOSO</span>
                                 </div>
 
@@ -565,7 +552,7 @@
                                 <div class="w-full bg-[#D9D9D9] rounded-full h-2.5 my-2">
                                     <div class="bg-[#37BE71] h-2.5 rounded-full" style="width: 50%"></div>
                                 </div>
-                                <p class="font-bold text-black text-md">50% Course Completed</p>  
+                                <p class="font-bold text-black text-md">50% Course Completed</p>
                                 <div class="flex justify-end mb-2">
                                     <a href="#"
                                         class="border-[#0062CC] border font-bold text-xs text-[#0062CC] px-4 py-2 rounded hover:bg-[#004a99] mt-4">
@@ -574,61 +561,54 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
 
                     <!-- List View (Hidden by Default) -->
                     <div id="listView" class="hidden space-y-4">
                         <!-- List Item 1 -->
-                        <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                        <div
+                            class="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
                             <!-- Image -->
                             <img src="/images/dashboard/default-course.png" alt="Course"
                                 class="w-48 h-48 object-cover rounded-xl border border-gray-100 shadow" />
-                    
+
                             <!-- Info -->
                             <div class="flex flex-col flex-grow gap-4">
                                 <!-- Title -->
-                                <h3 class="text-xl font-semibold text-gray-800 leading-snug">
+                                <h3 class="text-xl font-semibold text-gray-800 leading-snug titleCourse">
                                     Konstruksi Perangkat Lunak SE-06-02 [RPD]
                                 </h3>
-                    
+
                                 <!-- Lecturer -->
                                 <div class="flex items-center text-sm text-gray-600">
                                     <img src="/images/dashboard/pp-dosen.png" alt="Profile"
                                         class="w-8 h-8 rounded-full border border-gray-300 mr-2" />
                                     <span>RIYAN DWI YULIAN PRAKOSO</span>
                                 </div>
-                    
+
                                 <!-- Progress Section -->
                                 <div class="flex items-center gap-4 mt-2">
                                     <!-- Circular Progress -->
                                     <svg class="w-10 h-10" viewBox="0 0 36 36">
-                                        <path
-                                            class="text-gray-200"
-                                            d="M18 2.0845
+                                        <path class="text-gray-200" d="M18 2.0845
                                                 a 15.9155 15.9155 0 0 1 0 31.831
-                                                a 15.9155 15.9155 0 0 1 0 -31.831"
-                                            fill="none"
-                                            stroke="currentColor"
+                                                a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor"
                                             stroke-width="4" />
-                                        <path
-                                            class="text-green-500"
-                                            d="M18 2.0845
-                                                a 15.9155 15.9155 0 0 1 0 31.831"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="4"
-                                            stroke-dasharray="50, 100" />
+                                        <path class="text-green-500" d="M18 2.0845
+                                                a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke="currentColor"
+                                            stroke-width="4" stroke-dasharray="50, 100" />
                                     </svg>
-                    
+
                                     <!-- Progress Text -->
                                     <div class="flex flex-col">
                                         <p class="text-sm text-gray-600">28 out of 56 activities completed</p>
-                                        <span class="text-sm font-medium text-gray-800 mt-0.5">50% Course Completed</span>
+                                        <span class="text-sm font-medium text-gray-800 mt-0.5">50% Course
+                                            Completed</span>
                                     </div>
                                 </div>
                             </div>
-                    
+
                             <!-- Action Button -->
                             <div class="mt-4 sm:mt-0 sm:ml-auto">
                                 <a href="#"
@@ -636,60 +616,53 @@
                                     View Course
                                 </a>
                             </div>
-                        </div>                    
-                                     
-                                         
+                        </div>
+
+
                         <!-- List Item 2 -->
                         <!-- List Item 1 -->
-                        <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                        <div
+                            class="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
                             <!-- Image -->
                             <img src="/images/dashboard/default-course.png" alt="Course"
                                 class="w-48 h-48 object-cover rounded-xl border border-gray-100 shadow" />
-                    
+
                             <!-- Info -->
                             <div class="flex flex-col flex-grow gap-4">
                                 <!-- Title -->
                                 <h3 class="text-xl font-semibold text-gray-800 leading-snug">
                                     Konstruksi Perangkat Lunak SE-06-02 [RPD]
                                 </h3>
-                    
+
                                 <!-- Lecturer -->
                                 <div class="flex items-center text-sm text-gray-600">
                                     <img src="/images/dashboard/pp-dosen.png" alt="Profile"
                                         class="w-8 h-8 rounded-full border border-gray-300 mr-2" />
                                     <span>RIYAN DWI YULIAN PRAKOSO</span>
                                 </div>
-                    
+
                                 <!-- Progress Section -->
                                 <div class="flex items-center gap-4 mt-2">
                                     <!-- Circular Progress -->
                                     <svg class="w-10 h-10" viewBox="0 0 36 36">
-                                        <path
-                                            class="text-gray-200"
-                                            d="M18 2.0845
+                                        <path class="text-gray-200" d="M18 2.0845
                                                 a 15.9155 15.9155 0 0 1 0 31.831
-                                                a 15.9155 15.9155 0 0 1 0 -31.831"
-                                            fill="none"
-                                            stroke="currentColor"
+                                                a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor"
                                             stroke-width="4" />
-                                        <path
-                                            class="text-green-500"
-                                            d="M18 2.0845
-                                                a 15.9155 15.9155 0 0 1 0 31.831"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="4"
-                                            stroke-dasharray="50, 100" />
+                                        <path class="text-green-500" d="M18 2.0845
+                                                a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke="currentColor"
+                                            stroke-width="4" stroke-dasharray="50, 100" />
                                     </svg>
-                    
+
                                     <!-- Progress Text -->
                                     <div class="flex flex-col">
                                         <p class="text-sm text-gray-600">28 out of 56 activities completed</p>
-                                        <span class="text-sm font-medium text-gray-800 mt-0.5">50% Course Completed</span>
+                                        <span class="text-sm font-medium text-gray-800 mt-0.5">50% Course
+                                            Completed</span>
                                     </div>
                                 </div>
                             </div>
-                    
+
                             <!-- Action Button -->
                             <div class="mt-4 sm:mt-0 sm:ml-auto">
                                 <a href="#"
@@ -701,55 +674,48 @@
 
                         <!-- List Item 3 -->
                         <!-- List Item 1 -->
-                        <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                        <div
+                            class="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
                             <!-- Image -->
                             <img src="/images/dashboard/default-course.png" alt="Course"
                                 class="w-48 h-48 object-cover rounded-xl border border-gray-100 shadow" />
-                    
+
                             <!-- Info -->
                             <div class="flex flex-col flex-grow gap-4">
                                 <!-- Title -->
                                 <h3 class="text-xl font-semibold text-gray-800 leading-snug">
                                     Konstruksi Perangkat Lunak SE-06-02 [RPD]
                                 </h3>
-                    
+
                                 <!-- Lecturer -->
                                 <div class="flex items-center text-sm text-gray-600">
                                     <img src="/images/dashboard/pp-dosen.png" alt="Profile"
                                         class="w-8 h-8 rounded-full border border-gray-300 mr-2" />
                                     <span>RIYAN DWI YULIAN PRAKOSO</span>
                                 </div>
-                    
+
                                 <!-- Progress Section -->
                                 <div class="flex items-center gap-4 mt-2">
                                     <!-- Circular Progress -->
                                     <svg class="w-10 h-10" viewBox="0 0 36 36">
-                                        <path
-                                            class="text-gray-200"
-                                            d="M18 2.0845
+                                        <path class="text-gray-200" d="M18 2.0845
                                                 a 15.9155 15.9155 0 0 1 0 31.831
-                                                a 15.9155 15.9155 0 0 1 0 -31.831"
-                                            fill="none"
-                                            stroke="currentColor"
+                                                a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor"
                                             stroke-width="4" />
-                                        <path
-                                            class="text-green-500"
-                                            d="M18 2.0845
-                                                a 15.9155 15.9155 0 0 1 0 31.831"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="4"
-                                            stroke-dasharray="50, 100" />
+                                        <path class="text-green-500" d="M18 2.0845
+                                                a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke="currentColor"
+                                            stroke-width="4" stroke-dasharray="50, 100" />
                                     </svg>
-                    
+
                                     <!-- Progress Text -->
                                     <div class="flex flex-col">
                                         <p class="text-sm text-gray-600">28 out of 56 activities completed</p>
-                                        <span class="text-sm font-medium text-gray-800 mt-0.5">50% Course Completed</span>
+                                        <span class="text-sm font-medium text-gray-800 mt-0.5">50% Course
+                                            Completed</span>
                                     </div>
                                 </div>
                             </div>
-                    
+
                             <!-- Action Button -->
                             <div class="mt-4 sm:mt-0 sm:ml-auto">
                                 <a href="#"
@@ -761,55 +727,48 @@
 
                         <!-- List Item 4 -->
                         <!-- List Item 1 -->
-                        <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                        <div
+                            class="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
                             <!-- Image -->
                             <img src="/images/dashboard/default-course.png" alt="Course"
                                 class="w-48 h-48 object-cover rounded-xl border border-gray-100 shadow" />
-                    
+
                             <!-- Info -->
                             <div class="flex flex-col flex-grow gap-4">
                                 <!-- Title -->
                                 <h3 class="text-xl font-semibold text-gray-800 leading-snug">
                                     Konstruksi Perangkat Lunak SE-06-02 [RPD]
                                 </h3>
-                    
+
                                 <!-- Lecturer -->
                                 <div class="flex items-center text-sm text-gray-600">
                                     <img src="/images/dashboard/pp-dosen.png" alt="Profile"
                                         class="w-8 h-8 rounded-full border border-gray-300 mr-2" />
                                     <span>RIYAN DWI YULIAN PRAKOSO</span>
                                 </div>
-                    
+
                                 <!-- Progress Section -->
                                 <div class="flex items-center gap-4 mt-2">
                                     <!-- Circular Progress -->
                                     <svg class="w-10 h-10" viewBox="0 0 36 36">
-                                        <path
-                                            class="text-gray-200"
-                                            d="M18 2.0845
+                                        <path class="text-gray-200" d="M18 2.0845
                                                 a 15.9155 15.9155 0 0 1 0 31.831
-                                                a 15.9155 15.9155 0 0 1 0 -31.831"
-                                            fill="none"
-                                            stroke="currentColor"
+                                                a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor"
                                             stroke-width="4" />
-                                        <path
-                                            class="text-green-500"
-                                            d="M18 2.0845
-                                                a 15.9155 15.9155 0 0 1 0 31.831"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="4"
-                                            stroke-dasharray="50, 100" />
+                                        <path class="text-green-500" d="M18 2.0845
+                                                a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke="currentColor"
+                                            stroke-width="4" stroke-dasharray="50, 100" />
                                     </svg>
-                    
+
                                     <!-- Progress Text -->
                                     <div class="flex flex-col">
                                         <p class="text-sm text-gray-600">28 out of 56 activities completed</p>
-                                        <span class="text-sm font-medium text-gray-800 mt-0.5">50% Course Completed</span>
+                                        <span class="text-sm font-medium text-gray-800 mt-0.5">50% Course
+                                            Completed</span>
                                     </div>
                                 </div>
                             </div>
-                    
+
                             <!-- Action Button -->
                             <div class="mt-4 sm:mt-0 sm:ml-auto">
                                 <a href="#"
@@ -831,13 +790,15 @@
                 <!-- Grid Container -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <!-- Logo Section -->
-                    <div class="flex flex-col items-center md:items-end border-b border-gray-700 pb-6 md:border-b-0 md:pb-0">
+                    <div
+                        class="flex flex-col items-center md:items-end border-b border-gray-700 pb-6 md:border-b-0 md:pb-0">
                         <img src="/images/logo.png" class="w-56 h-auto md:mr-6 md:pt-4" alt="CeLOE Logo">
                         <p class="text-sm mt-3 text-center">Center of e-Learning and Open Education</p>
                     </div>
-        
+
                     <!-- Address Section -->
-                    <div class="flex flex-col items-center md:items-start border-b border-gray-700 pb-6 md:border-b-0 md:pb-0">
+                    <div
+                        class="flex flex-col items-center md:items-start border-b border-gray-700 pb-6 md:border-b-0 md:pb-0">
                         <p class="font-semibold text-xs">Address</p>
                         <p class="mt-4 text-[13px] text-center md:text-left">
                             Gedung Panehan Pasca Sarjana Lantai 1,<br>
@@ -847,7 +808,8 @@
                         <div class="mt-4 space-y-2 text-center md:text-left">
                             <div class="flex items-center justify-center md:justify-start">
                                 <i class="fas fa-envelope text-white mr-2"></i>
-                                <p class="text-white hover:underline text-[13px]">E-Mail: clove@telkomuniversity.ac.id</p>
+                                <p class="text-white hover:underline text-[13px]">E-Mail: clove@telkomuniversity.ac.id
+                                </p>
                             </div>
                             <div class="flex items-center justify-center md:justify-start">
                                 <i class="fab fa-whatsapp text-white mr-2"></i>
@@ -855,20 +817,22 @@
                             </div>
                             <div class="flex items-center justify-center md:justify-start">
                                 <i class="fab fa-whatsapp text-white mr-2"></i>
-                                <p class="text-white hover:underline text-[13px]">Khusus Mahasiswa: +62 812-2200-1813</p>
+                                <p class="text-white hover:underline text-[13px]">Khusus Mahasiswa: +62 812-2200-1813
+                                </p>
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- Related Links -->
                     <div class="flex flex-col  border-b border-gray-700 pb-6 md:border-b-0 md:pb-0">
                         <p class="font-semibold text-xs text-center md:text-start">Related Links</p>
-                        <div class="flex justify-center md:justify-end mt-4 space-x-6 items-center md:items-end md:pr-12 md:pt-6">
+                        <div
+                            class="flex justify-center md:justify-end mt-4 space-x-6 items-center md:items-end md:pr-12 md:pt-6">
                             <img src="images/footer/openlib.png" alt="Open Library" class="h-auto w-16">
                             <img src="images/footer/cae.png" alt="CAE" class="h-auto w-16">
                         </div>
                     </div>
-        
+
                     <!-- Social Media -->
                     <div class="flex flex-col items-center md:items-start">
                         <p class="font-semibold text-xs">Social Media</p>
@@ -894,9 +858,10 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <!-- Bottom Links -->
-                <div class="flex flex-col md:flex-row justify-center items-center md:justify-start md:items-start mt-8 pt-6 border-t border-gray-800 space-y-2 md:space-y-0 md:space-x-4">
+                <div
+                    class="flex flex-col md:flex-row justify-center items-center md:justify-start md:items-start mt-8 pt-6 border-t border-gray-800 space-y-2 md:space-y-0 md:space-x-4">
                     <p class="text-xs text-gray-300 hover:underline cursor-pointer">Privacy Policy</p>
                     <p class="text-xs text-gray-300 hover:underline cursor-pointer">Terms & Conditions</p>
                 </div>
@@ -904,7 +869,7 @@
         </footer>
 
         <!-- Popup Modal -->
-        <div id="popup-modal" class=" fixed inset-0 flex items-start justify-center z-50">
+        <div id="popup-modal" class="hidden fixed inset-0 flex items-start justify-center z-50">
             <div class="bg-white shadow-lg pb-6 px-6 pt-6 w-11/12 max-w-6xl overflow-auto">
                 <img src="images/dashboard/popup.png" alt="" class="w-full h-auto mb-4">
                 <div class="flex justify-between items-center">
@@ -920,7 +885,179 @@
 
     </div>
 
-    <script src="/script/dashboard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // DOM Elements
+            const gridViewBtn = document.getElementById("gridViewBtn");
+            const listViewBtn = document.getElementById("listViewBtn");
+            const gridView = document.getElementById("gridView");
+            const listView = document.getElementById("listView");
+            const searchInput = document.getElementById("searchCourseOverview");
+            const sortButton = document.querySelector(".relative button");
+            const tabButtons = document.querySelectorAll(".tab-button");
+
+            // State variables
+            let currentView = 'grid';
+            let currentSort = 'default'; // 'default', 'asc', 'desc'
+            let currentTab = 'all';
+            let currentSearch = '';
+
+            // Initialize
+            setupEventListeners();
+            updateView();
+
+            function setupEventListeners() {
+                // View toggle
+                gridViewBtn.addEventListener('click', () => {
+                    currentView = 'grid';
+                    updateView();
+                });
+
+                listViewBtn.addEventListener('click', () => {
+                    currentView = 'list';
+                    updateView();
+                });
+
+                // Search
+                searchInput.addEventListener('input', (e) => {
+                    currentSearch = e.target.value.toLowerCase();
+                    filterCourses();
+                });
+
+                // Sort
+                sortButton.addEventListener('click', () => {
+                    if (currentSort === 'default') currentSort = 'asc';
+                    else if (currentSort === 'asc') currentSort = 'desc';
+                    else currentSort = 'default';
+                    updateSortButton();
+                    filterCourses();
+                });
+
+                // Tabs
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        currentTab = button.getAttribute('data-tab');
+                        updateTabs();
+                        filterCourses();
+                    });
+                });
+            }
+
+            function updateView() {
+                if (currentView === 'grid') {
+                    gridView.classList.remove('hidden');
+                    listView.classList.add('hidden');
+                    gridViewBtn.classList.add('bg-[#FBD1D3]', 'text-[#ED1B24]', 'border-[#F4767B]');
+                    gridViewBtn.classList.remove('bg-white', 'text-[#626262]', 'border-[#B0B0B0]');
+                    listViewBtn.classList.add('bg-white', 'text-[#626262]', 'border-[#B0B0B0]');
+                    listViewBtn.classList.remove('bg-[#FBD1D3]', 'text-[#ED1B24]', 'border-[#F4767B]');
+                } else {
+                    gridView.classList.add('hidden');
+                    listView.classList.remove('hidden');
+                    listViewBtn.classList.add('bg-[#FBD1D3]', 'text-[#ED1B24]', 'border-[#F4767B]');
+                    listViewBtn.classList.remove('bg-white', 'text-[#626262]', 'border-[#B0B0B0]');
+                    gridViewBtn.classList.add('bg-white', 'text-[#626262]', 'border-[#B0B0B0]');
+                    gridViewBtn.classList.remove('bg-[#FBD1D3]', 'text-[#ED1B24]', 'border-[#F4767B]');
+                }
+                filterCourses();
+            }
+
+            function updateSortButton() {
+                const icon = sortButton.querySelector('svg');
+                sortButton.innerHTML = currentSort === 'asc' ? 'Sort by course name (A-Z)' :
+                    currentSort === 'desc' ? 'Sort by course name (Z-A)' :
+                        'Sort by course name';
+                sortButton.appendChild(icon);
+                icon.classList.toggle('rotate-180', currentSort === 'desc');
+            }
+
+            function updateTabs() {
+                tabButtons.forEach(button => {
+                    if (button.getAttribute('data-tab') === currentTab) {
+                        button.classList.add('text-[#A12520]', 'border-b-2', 'border-[#A12520]');
+                        button.classList.remove('text-[#626262]');
+                    } else {
+                        button.classList.remove('text-[#A12520]', 'border-b-2', 'border-[#A12520]');
+                        button.classList.add('text-[#626262]');
+                    }
+                });
+            }
+
+            function filterCourses() {
+                const cards = document.querySelectorAll('.tab-content');
+                const activeView = currentView === 'grid' ? gridView : listView;
+
+                // Filter and sort
+                const filteredCards = Array.from(cards)
+                    .filter(card => {
+                        // Tab filter
+                        const tabMatch = currentTab === 'all' || card.classList.contains(currentTab);
+
+                        // Search filter
+                        const title = card.querySelector('h3').textContent.toLowerCase();
+                        const searchMatch = currentSearch === '' || title.includes(currentSearch);
+
+                        return tabMatch && searchMatch;
+                    })
+                    .sort((a, b) => {
+                        if (currentSort === 'default') return 0;
+
+                        const titleA = a.querySelector('h3').textContent.toLowerCase();
+                        const titleB = b.querySelector('h3').textContent.toLowerCase();
+
+                        return currentSort === 'asc'
+                            ? titleA.localeCompare(titleB)
+                            : titleB.localeCompare(titleA);
+                    });
+
+                // Hide all cards first
+                cards.forEach(card => card.style.display = 'none');
+
+                // Show filtered cards with correct display style
+                filteredCards.forEach(card => {
+                    card.style.display = currentView === 'grid' ? 'block' : 'flex';
+
+                    // Ensure cards are in correct container
+                    if (currentView === 'grid' && card.parentNode !== gridView) {
+                        gridView.appendChild(card);
+                    } else if (currentView === 'list' && card.parentNode !== listView) {
+                        listView.appendChild(card);
+                    }
+                });
+            }
+
+            // Initialize first tab as active
+            if (tabButtons.length > 0) {
+                tabButtons[0].click();
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const popup = document.getElementById("popup-modal");
+            const closeButton = document.getElementById("close-popup");
+
+            closeButton.addEventListener("click", function () {
+                popup.classList.add("hidden");
+            });
+
+            const hamburgerBtn = document.getElementById("hamburgerBtn");
+            const leftMenu = document.getElementById("leftMenu");
+
+            if (hamburgerBtn && leftMenu) {
+                hamburgerBtn.addEventListener("click", function () {
+                    leftMenu.classList.toggle("hidden");
+                });
+            }
+
+            let closeMenu = document.getElementById("closeMenu");
+            if (closeMenu) {
+                closeMenu.addEventListener("click", function () {
+                    leftMenu.classList.add("hidden");
+                });
+            }
+        });
+
+    </script>
 </body>
 
 </html>
